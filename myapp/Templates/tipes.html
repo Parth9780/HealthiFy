@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HealtiFy App</title>
+        <link rel="icon" type="image/x-icon" href="/static/img/FAVICON.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Css -->
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/media.css">
+        <link rel="stylesheet" href="/static/css/about.css">
+        <script src="/static/js/script.js"></script>
+        <style></style>
+        <!-- Bootstrap -->
+        <!-- Css -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        >
+        <!-- Js -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <!-- Icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+        <!-- Fontawesome Link for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <div class="container-fluid">
+            <div class="row p-3 header" style="background-color: #007C9D;">
+                <div class="col-md-3 col-4 head-logo">
+                    <a class="navbar-brand text-white ms-4 fs-3" href="#">HealthiFy</a>
+                </div>
+                <div class="col-md-5 col-10 col-sm-5 head-search">
+                    <form class="d-flex" role="search">
+                        <input
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search"
+                        >
+                        <button class="btn btn-sm bg-white text-dark">
+                            <span class="bi bi-search"></span>
+                        </button>
+                    </form>
+                </div>
+                <div class="col-md-3 col-4 col-sm-3 ms-4 register-button">
+                    {% if user is none %}
+                    <a href="/register" class="btn btn-outline-light btn-md">Register Now</a>
+                    {% else %}
+                    <div class="dropdown">
+                        <a
+                            class="btn btn-outline-light dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            {{user}}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="/profile">Update Profile</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/userlogout">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- /Header -->
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <button
+                    class="navbar-toggler text-break"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Services
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="/opd">OPD</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/diagnostic">
+                                        diagnostic
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/cardiology">Cardiology</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/neurology">Neurology</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/orthopadics">Orthopedics</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/appointement">Book-Apointement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Health-Life Tipes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/service24">24/7 Service</a>
+                        </li>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /Navbar -->
+    <!-- Hero Section -->
+    <div class="accordion accordion-flush container my-5" id="accordionFlushExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                >
+                    Measure and Watch Your Weight
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Keeping track of your body weight on a daily or weekly basis will help you see what you’re losing and/or what
+                    you’re gaining.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                >
+                    Limit Unhealthy Foods and Eat Healthy Meals
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Do not forget to eat breakfast and choose a nutritious meal with more protein and fiber and less fat, sugar, and
+                    calories. For more information on weight-control foods and dietary recommendations, please check the following
+                    website: www.hsph.harvard.edu/obesity-prevention-source/obesity-causes/diet-and-weight/.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree"
+                >
+                    Take Multivitamin Supplements
+                </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    To make sure you have sufficient levels of nutrients, taking a daily multivitamin supplement is a good idea,
+especially when you do not have a variety of vegetables and fruits at home. Many micronutrients are vital to your
+immune system, including vitamins A, B6, B12, C, D, and E, as well as zinc, iron, copper, selenium, and magnesium.
+However, there’s currently NO available evidence that adding any supplements or “miracle mineral supplements”
+to your diet will help protect you from the virus or increase recovery. In some cases, high doses of vitamins can be
+bad for your health.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapsefour"
+                    aria-expanded="false"
+                    aria-controls="flush-collapsefour"
+                >
+                    Drink Water and Stay Hydrated, and Limit Sugared Beverages
+                </button>
+            </h2>
+            <div id="flush-collapsefour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Drink water regularly to stay healthy, but there is NO evidence that drinking water frequently (e.g. every 15
+minutes) can help prevent any viral infection. For more information on drinking water and coronavirus, please
+check the following EPA website: www.epa.gov/coronavirus/coronavirus-and-drinking-water-and-wastewater.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseFive"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseFive"
+                >
+                    Exercise Regularly and Be Physically Active
+                </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    At this time, at-home workouts may be a good idea. But you can also walk your dog or run outside. Be sure you
+know what’s going on in your area and if there are any restrictions or mandatory self-quarantines. For more
+information on how to stay physically active while at home, please check the ACSM website: www.acsm.org/
+read-research/newsroom/news-releases/news-detail/2020/03/16/staying-physically-active-during-covid-19-
+pandemic.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseSix"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseSix"
+                >
+                    Reduce Sitting and Screen Time
+                </button>
+            </h2>
+            <div id="flush-collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Exercise can’t immunize you from your sedentary time. Even people who exercise regularly could be at increased
+risk for diabetes and heart disease and stroke if they spend lots of time sitting behind computers. Practically
+speaking, you could consider taking breaks from sedentary time, such as walking around the office/room a couple
+of times in a day
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseSeven"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseSeven"
+                >
+                    Get Enough Good Sleep
+                </button>
+            </h2>
+            <div id="flush-collapseSeven" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    There is a very strong connection between sleep quality and quantity and your immune system. You can keep your
+immune system functioning properly by getting seven to eight hours of sleep each night. For more information,
+please check the CDC website: www.cdc.gov/sleep/index.html.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseEight"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseEight"
+                >
+                    Go Easy on Alcohol and Stay Sober
+                </button>
+            </h2>
+            <div id="flush-collapseEight" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    Drinking alcohol does not protect you from the coronavirus infection. Don’t forget that those alcohol calories can
+add up quickly. Alcohol should always be consumed in moderation. Please see the recommendations by the AHA:
+www.heart.org/en/healthy-living/healthy-eating/eat-smart/nutrition-basics/alcohol-and-heart-health.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseNine"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseNine"
+                >
+                    Find Ways to Manage Your Emotions
+                </button>
+            </h2>
+            <div id="flush-collapseNine" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    It is common for people to have feelings of fear, anxiety, sadness, and uncertainty during a pandemic. To minimize
+stress-related weight gain, you use this information about stress and coping provided by the CDC: www.cdc.gov/
+coronavirus/2019-ncov/prepare/managing-stress-anxiety.html.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTen"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTen"
+                >
+                    Use an App to Keep Track of Your Movement, Sleep, and Heart Rate
+                </button>
+            </h2>
+            <div id="flush-collapseTen" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <b>A reminder:</b>
+                    People with serious chronic medical conditions, including extreme obesity, diabetes, and heart disease
+are at a higher risk of experiencing complications and getting very sick from the COVID-19 infection. They should talk
+to their medical providers and listen to their advice.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Videos -->
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-md-4">
+                <video
+                    src="/static/Videos/7 Fitness Habits That Will Change Your Life _ Health & Fitness Habits Hacks _ Daily Healthy Tips - Downloaded from clipzag.com.mp4"
+                    controls
+                    width="100%"
+                    height="300px"
+                ></video>
+            </div>
+            <div class="col-md-4">
+                <video
+                    src="/static/Videos/Basic YOGA ASANAS for GOOD HEALTH - for Beginners and all Age Groups _ Beginners Yoga at Home - Downloaded from clipzag.com.mp4"
+                    controls
+                    width="100%"
+                    height="300px"
+                ></video>
+            </div>
+            <div class="col-md-4">
+                <video
+                    src="/static/Videos/How to detox your intestine (colon) through natural home remedies_ _ Dr. Hansaji Yogendra - Downloaded from clipzag.com.mp4"
+                    controls
+                    width="100%"
+                    height="300px"
+                ></video>
+            </div>
+            <div class="col-md-4">
+                <video
+                    src="/static/Videos/How to EASILY Kick Start A Healthy Lifestyle FAST!! (For FREE!!) - Downloaded from clipzag.com.mp4"
+                    controls
+                    width="100%"
+                    height="300px"
+                ></video>
+            </div>
+            <div class="col-md-4">
+                <video
+                    src="/static/Videos/videoplayback.mp4"
+                    controls
+                    width="100%"
+                    height="300px"
+                ></video>
+            </div>
+        </div>
+    </div>
+    <!-- /Videos -->
+    <!-- /Hero Section -->
+    <!-- Footer -->
+    <section class="">
+        <div class="container-fluid" style="background-color: #007C9D;">
+            <div class="container py-5">
+                <div class="row">
+                    <div class="col-md-3 col-12">
+                        <a class="navbar-brand text-white fs-3" href="#">HEALTHIFY</a>
+                        <p class="text-info">
+                            FOLLOW US: &nbsp;
+                            <span class="bi bi-facebook text-white"></span>
+                            &nbsp;&nbsp;
+                            <span class="bi bi-twitter text-white"></span>
+                            &nbsp;&nbsp;
+                            <span class="bi bi-instagram text-white"></span>
+                            &nbsp;&nbsp;
+                            <span class="bi bi-google text-white"></span>
+                        </p>
+                        <p class="text-white pt-2 pb-5" style="text-align: justify;">We are one of the best and most advanced multi-specialty hospitals in the region offering high quality surgical and medical services to adult and pediatric patients for the last 10 years.</p>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <h5 class="text-white ps-4">FACILITIS</h5>
+                        <ul class="pt-3 footer-list pb-5">
+                            <li>
+                                <a href="/advanceOT">Advanced operation theater</a>
+                            </li>
+                            <li>
+                                <a href="/x_ray">Digital X-Rays</a>
+                            </li>
+                            <li>
+                                <a href="/pharmacy">Pharmacy</a>
+                            </li>
+                            <li>
+                                <a href="/lab">Hi-Tech Pathology Lab</a>
+                            </li>
+                            <li>
+                                <a href="/rooms">Confortable special rooms</a>
+                            </li>
+                            <li>
+                                <a href="/ward">Spacious General Ward</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-12">
+                        <h5 class="text-white ps-4">QUICK LINKS</h5>
+                        <ul class="pt-3 footer-list pb-5">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li>
+                                <a href="/about">About-us</a>
+                            </li>
+                            <li>
+                                <a href="/opd">Services</a>
+                            </li>
+                            <li>
+                                <a href="#">Healthi-Tips</a>
+                            </li>
+                            <li>
+                                <a href="/service24">24/7 Service</a>
+                            </li>
+                            <li>
+                                <a href="/contact">Contact-us</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <h5 class="text-white">CONTACT US</h5>
+                        <p class="pt-3 text-white">
+                            <span class="text-info">Address:</span>
+                            <br>
+                            Yashawant Vihar Complex, Near MGM School, Opp MHADA Ground, Bolinj, Virar(West)
+                        </p>
+                        <p class="text-white">
+                            <span class="text-info">Call Us:</span>
+                            <br>
+                            (0281)-2587100/101, +90905 27070,+90905 37070
+                        </p>
+                        <p class="text-white">
+                            <span class="text-info">Email:</span>
+                            <br>
+                            HealthiFy09@gmail.com,parth.patel@gmail.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rigth bg-dark p-4">
+            <p class="text-white" style="text-align: center;">
+                <span class="bi bi-c-circle"></span>
+                2024 HealthiFy Hospital & Research Center .Developed by
+                <span class="text-info">Tops Technology</span>
+            </p>
+        </div>
+    </section>
+    <!-- /Footer -->
+</body>
+</html>

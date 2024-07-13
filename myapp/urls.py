@@ -1,0 +1,35 @@
+from django.contrib import admin
+from django.urls import path,include
+from myapp import views
+
+urlpatterns = [
+    path('',views.index,name='index'),
+    path('register/',views.register,name='register'),
+    path('login/',views.login,name='login'),
+    path('for/',views.forgot),
+    path('userlogout/',views.logout_view),
+    path('profile/',views.profile,name='profile'),
+    path('about/',views.about,name='about'),
+    path('opd/',views.opd,name='opd'),
+    path('diagnostic/',views.diagnostic,name='diagnostic'),
+    path('cardiology/',views.cardiology,name='cardiology'),
+    path('neurology/',views.neurology,name='neurology'),
+    path('orthopadics/',views.orthopadics,name='orthopadic'),
+    path('appointement/',views.appointement,name='appointement'),
+    path('tipes/',views.tipes,name='tipes'),
+    path('service24/',views.service24,name='service24'),
+    path('contact/',views.contact,name='contact'),
+    path('advanceOT/',views.advanceOT,name='advanceOT'),
+    path('x_ray/',views.x_ray,name='x_ray'),
+    path('pharmacy/',views.pharmacy,name='pharmacy'),
+    path('lab/',views.lab,name='lab'),
+    path('rooms/',views.rooms,name='rooms'),
+    path('ward/',views.ward,name='ward'),
+    path('appointmentdata/',views.appointmentdata,name='appointmentdata'),
+    path('update/<int:id>',views.update,name='update'),
+    path('deletedata/<int:id>',views.deletedata,name='deletedata'),
+    path('viewuser/',views.viewuser,name='viewuser'),
+    path('deleteuser/<int:id>',views.deleteuser),
+    path('addadmin/',views.addadmin),
+    path('changepass/',views.changepass),
+]

@@ -1,0 +1,36 @@
+@media screen and (max-width: 426px) {
+    .carousel-item img {
+        width: 100%;
+        height: 300px !important;
+    }
+    .servic-img img{
+        height: 200px !important;
+    }
+    .card {
+        border-style: none !important;
+    }
+    .card img{
+        width: 180px !important;
+        height: 200px !important;
+    }
+    .Doctor {
+        margin-left: 0 !important;
+        padding-left: -10px !important;
+    }
+    .head-logo a{
+        padding: 130px !important;
+    }
+    .overLayer a {
+        margin-left: 45% !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel-item img {
+        width: 100%;
+        height: 350px !important;
+    }
+     .servic-img img{
+        height: 200px !important;
+    }
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>HealtiFy App</title>
+        <link rel="icon" type="image/x-icon" href="/static/img/FAVICON.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Css -->
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/media.css">
+        <script src="/static/js/script.js"></script>
+        <!-- Bootstrap -->
+        <!-- Css -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+            crossorigin="anonymous"
+        >
+        <!-- Js -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <!-- Icon -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playwrite+FR+Moderne:wght@100..400&display=swap" rel="stylesheet">
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT" crossorigin="anonymous"></script>
+        <!-- Fontawesome Link for Icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb p-3 fs-5">
+                            <li class="breadcrumb-item">
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                <a href="/appointmentdata">Appointment Info</a>
+                            </li>
+                            <li class="breadcrumb-item active" aria-current="page">Update Data</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-md-6">
+                    <div class="dropdown p-3" style="text-align: end;">
+                        <button
+                            class="btn dropdown-toggle fs-5"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <i class="bi bi-person-square">&nbsp;</i>
+                            {{ Doctor }}
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="#">Change Password</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">Sign out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr style="width: 95%; margin: auto;">
+        <div class="container-fluid main">
+            <div class="row">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="col-md-5 bg-light px-5 my-5" style="margin: auto;">
+                        <h2 class="pt-3" style="color: #007C9D;">Update Appointment Date</h2>
+                        <hr>
+                        <input
+                            type="text"
+                            class="form-control my-4"
+                            id="exampleFormControlInput1"
+                            placeholder="Enter Full Name"
+                            name="Name"
+                            value="{{client.Name}}"
+                            readonly
+                        >
+                        <input
+                            type="text"
+                            class="form-control my-4"
+                            id="exampleFormControlInput1"
+                            placeholder="Enter Mobile Number"
+                            name="Mobile"
+                            value="{{client.Mobile}}"
+                            readonly
+                        >
+                        <input
+                            type="email"
+                            class="form-control my-4"
+                            id="exampleFormControlInput1"
+                            placeholder="Enter Email Address"
+                            name="Email"
+                            value="{{client.Email}}"
+                            readonly
+                        >
+                        <input
+                            type="date"
+                            class="form-control my-4"
+                            id="exampleFormControlInput1"
+                            placeholder="Appointment Date"
+                            value="{{client.Date}}"
+                            name="Date"
+                        >
+                        <div class="row">
+                            <p class="ps-3">Address Detials</p>
+                            <div class="col-md-6">
+                                <input
+                                    type="text"
+                                    class="form-control mb-4"
+                                    id="exampleFormControlInput1"
+                                    placeholder="Enter Area"
+                                    name="Area"
+                                    value="{{client.Area}}"
+                                    readonly
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control my-4"
+                                    id="exampleFormControlInput1"
+                                    placeholder="Enter State"
+                                    name="State"
+                                    value="{{client.State}}"
+                                    readonly
+                                >
+                            </div>
+                            <div class="col-md-6">
+                                <input
+                                    type="text"
+                                    class="form-control mb-4"
+                                    id="exampleFormControlInput1"
+                                    placeholder="Enter City"
+                                    name="City"
+                                    value="{{client.City}}"
+                                    readonly
+                                >
+                                <input
+                                    type="text"
+                                    class="form-control my-4"
+                                    id="exampleFormControlInput1"
+                                    placeholder="Postal Code"
+                                    name="Postal_Code"
+                                    value="{{client.Postal_Code}}"
+                                    readonly
+                                >
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 mb-5">
+                            <button class="btn btn-primary my-3 mb-5" type="submit" style="color: #fff; background: #007C9D;">Update Now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

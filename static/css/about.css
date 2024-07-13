@@ -1,0 +1,120 @@
+.about-header {
+    width: 100%;
+    height: 300px !important;
+    background-image: url('../img/bg1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    z-index: 0;
+}
+
+nav h3 {
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 70px;
+    color: #007C9D;
+}
+
+nav ol {
+    align-items: center;
+    margin-left: 100px;
+    margin-top: 30px;
+    z-index: 1 !important;
+}
+
+.opd-header {
+    width: 100%;
+    height: 300px !important;
+    background: url('../img/bg1.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+table {
+    border-collapse: collapse !important;
+    width: 80%;
+    margin: auto !important;
+    margin-top: 130px !important;
+}
+
+table,
+th,
+td {
+
+    border-collapse: collapse !important;
+    border: 1px solid black;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 5px;
+    text-align: left;
+}
+
+.digno div {
+    border-right: 1px solid;
+
+}
+
+.digno div h5 {
+    font-size: 25px !important;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+.vertical-menu a {
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+    color: #007C9D;
+}
+
+.vertical-menu h3.active {
+    background-color: #007C9D;
+    color: white;
+    padding: 13px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-top: 10px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-container a {
+    color: black;
+    text-decoration: none;
+    list-style: none;
+}
+
+.checkbox-container a:hover {
+    text-decoration: underline;
+}
+.main{
+    width: 100%;
+    height: 700px !important;
+    background-image: url('../img/appointment.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+    z-index: 0; 
+}
